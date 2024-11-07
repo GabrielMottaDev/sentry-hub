@@ -85,14 +85,6 @@ const TwoFactorAuth = memo(() => {
 
     const { navbarOffset, setNavbarOffset } = useDimensions();
 
-    console.log("2FA RENDER");
-
-    // return (
-    //     <ScreenView>
-    //         <View>
-    //         </View>
-    //     </ScreenView>
-    // )
     return (
         <ScreenView>
             <View style={[styles.container, { marginBottom: 0 }]}>

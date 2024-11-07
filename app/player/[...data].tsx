@@ -37,7 +37,6 @@ export default function TabScreen() {
   }>();
 
   var playerDataRaw: string = "" + data[0];
-  // console.log("Player Data: " + playerDataRaw);
   var playerData = JSON.parse(atob(playerDataRaw));
 
   const {
@@ -51,7 +50,6 @@ export default function TabScreen() {
   } = playerData;
 
   const handleBustPress = ({ toggleAnimation }: BustSideFunctions) => {
-    console.log("Bust Pressed");
     toggleAnimation("flip");
   };
 
@@ -136,7 +134,6 @@ export default function TabScreen() {
             key={1}
             title="Ban"
             onPress={(onTouch) => {
-              console.log("Ban");
               setModalVisible("ban");
             }}
           />
@@ -145,7 +142,6 @@ export default function TabScreen() {
             key={2}
             title="Mute"
             onPress={(onTouch) => {
-              console.log("Mute");
               setModalVisible("mute");
             }}
           />
@@ -154,7 +150,6 @@ export default function TabScreen() {
             key={3}
             title="Jail"
             onPress={(onTouch) => {
-              console.log("Jail");
               setModalVisible("jail");
             }}
           />
@@ -236,7 +231,6 @@ export default function TabScreen() {
                       },
                     });
                   }
-                  console.log("Confirmado");
                   setModalVisible(null);
                 }}
               />

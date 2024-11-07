@@ -55,11 +55,7 @@ const CustomSplashScreen = () => {
 SplashScreen.preventAutoHideAsync();
 
 const RootLayout = () => {
-  // useEffect(() => {
-  //   SplashScreen.preventAutoHideAsync();
-
-  // }, []);
-  // SplashScreen.preventAutoHideAsync();
+  
   const colorScheme = useColorScheme();
 
   const [fontLoaded, fontError] = expoUseFonts({
@@ -115,27 +111,6 @@ const RootLayout = () => {
     "Montserrat-ThinItalic": require("../assets/fonts/Montserrat/Montserrat-ThinItalic.ttf"),
   });
 
-  // const [loaded] = useFonts([
-  //   ['assets/fonts/CaskaydiaCoveNerdFontMono/CaskaydiaCoveNerdFontMono-', ["Bold", "BoldItalic", "ExtraLight", "ExtraLightItalic", "Italic", "Light", "LightItalic", "Regular", "SemiBold", "SemiBoldItalic", "SemiLight", "SemiLightItalic"]],
-  // ]);
-
-  // const { onConnect, onConnectError } = useSocket();
-
-  // const [preLoaded, setPreLoaded] = useState(false);
-
-  // useEffect(() => {
-  //   if (fontLoaded && !fontError) {
-  //     // console.log("HIDE");
-  //     // setPreLoaded(true);
-  //     // SplashScreen.hideAsync();
-  //   }
-  // }, [fontLoaded, fontError]);
-
-  // if (!fontLoaded || fontError) {
-  //   console.log("_layout RENDER BUT FONT NOT LOADED");
-  //   return undefined;
-  // }
-
   useEffect(() => {
     if (fontLoaded || fontError) {
       SplashScreen.hideAsync();
@@ -148,53 +123,7 @@ const RootLayout = () => {
   }
 
   console.log("_layout RENDER");
-  // return <LoadingScreen />;
-
-  // const [appIsReady, setAppIsReady] = useState(false);
-  // const [preConnected, setPreConnected] = useState<boolean | null>(null);
-  // const socketInstance = new SocketClass();
-
-  // useEffect(() => {
-  //   (async () => {
-  //     const sessionId = await getSessionId();
-  //     const socket = io(`${Env.API_URL}`, {
-  //       auth: {
-  //         api_key: `${Env.API_KEY}`,
-  //         session_id: `${sessionId}`,
-  //       },
-  //       // transports: ['websocket'],  // Certifique-se de forçar o uso do WebSocket se necessário
-  //       secure: Env.API_URL?.includes("https"),
-  //       reconnection: true,
-  //       timeout: 3000,
-  //     });
-  //     socket.on("connect", () => {
-  //       console.log("_layout SOCKET CONNECTED");
-  //       setPreConnected(true);
-  //     });
-  //     socket.on("connect_error", () => {
-  //       console.log("_layout SOCKET ERROR");
-  //       setPreConnected(false);
-  //     });
-  //     socketInstance.setSocket(socket);
-  //   })();
-  // }, []);
-
-  // useEffect(() => {
-  //   if (fontLoaded === true && preConnected !== null) {
-  //     // console.log("HIDE SPLASH SCREEN");
-  //     // SplashScreen.hideAsync();
-  //     setAppIsReady(true);
-  //   }
-  // }, [fontLoaded, preConnected]);
-
-  // console.log("_layout RENDER");
-
-  // if (fontLoaded === false || preConnected === null) {
-  //   return CustomSplashScreen();
-  // }
-
-  // console.log("_layout RENDER after preload", fontLoaded, preConnected);
-
+  
   return (
     <AllProviders
       providers={[
@@ -206,14 +135,10 @@ const RootLayout = () => {
         AlertProvider,
       ]}
     >
-      {/* <> */}
-      {/* <MemoView style={{...StyleSheet.absoluteFillObject, flex: 1}}> */}
-      {/* </MemoView> */}
       <LoadingScreen key={"loading-screen"}/>
       <Stack
         screenOptions={{
           headerShown: false,
-          // presentation: 'transparentModal',
           animation: "none",
         }}
         >
@@ -224,8 +149,7 @@ const RootLayout = () => {
       </Stack>
       {/* </> */}
     </AllProviders>
-    //// <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-  );
+    );
 };
 
 export default RootLayout;

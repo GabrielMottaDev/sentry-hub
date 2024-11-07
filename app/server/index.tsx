@@ -48,8 +48,6 @@ export default function PlayerList() {
     })
       .then((response) => response.json())
       .then((json) => {
-        // console.log(json);
-        // console.log("Response: " + json);
         json.textures = JSON.parse(json.textures);
         setServerList([json]);
       })

@@ -90,36 +90,6 @@ const AnimatedModal = ({
         return () => backHandler.remove();
     }, [visible, handleClose]);
 
-    // const [isOpen, setOpen] = useState(true);
-    // const [blur, setBlur] = useState<number>(0);
-
-    // useEffect(() => {
-    //     setBlur(5);
-    // }, []);
-    // useDerivedValue(() => {
-    //     // console.log(offset.value);
-    //     let inter = interpolate(offset.value, [-20, HEIGHT], [1, 0]);
-    //     runOnJS(setBlur)(inter);
-    //     // console.log(inter)
-    //     // setBlur(Math.floor(inter))
-    // }, []); // No need to pass dependencies
-
-    // useAnimatedReaction(() => {
-    //     return offset.value;
-    // }, (result, previous) => {
-    //     if (result !== previous) {
-    //         //    console.log(result)
-    //         let inter = interpolate(result, [-20, HEIGHT], [5, 0]);
-    //         runOnJS(setBlur)(inter);
-    //         // console.log(inter)
-    //         //    setBlur(Math.floor(inter))
-    //         // setBlur(100);
-    //     }
-    // }, []); // No need to pass dependencies
-
-    // const blurRef = useRef<BlurView>(null);
-    // blurRef.current?.getAnimatableRef().
-
     const MAX_BLUR = 10;
 
     const animatedProps = useAnimatedProps(() => {

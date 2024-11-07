@@ -50,10 +50,8 @@ export default function PlayerList() {
         })
           .then((response) => response.json())
           .then((json) => {
-            // console.log(json);
             console.log("Response: ", json);
             json.textures = JSON.parse(json.textures);
-            // setPlayerList([json]);
             resolve(json);
           })
           .catch((error) => {
@@ -68,29 +66,6 @@ export default function PlayerList() {
     ]).then((values) => {
       setPlayerList(values.filter((value) => value !== null));
     });
-    // 10.0.2.2
-    // fetch(`${Env.API_URL}/player`, {
-    //   method: "POST",
-    //   headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/json",
-    //     Authorization: `${sessionId}`,
-    //   },
-    //   body: JSON.stringify({
-    //     api_key: `${Env.API_KEY}`,
-    //     uuid: "b81c59fe-10b3-4cc2-94b9-8fe514975b6b",
-    //   }),
-    // })
-    //   .then((response) => response.json())
-    //   .then((json) => {
-    //     // console.log(json);
-    //     console.log("Response: ", json);
-    //     json.textures = JSON.parse(json.textures);
-    //     setPlayerList([json]);
-    //   })
-    //   .catch((error) => {
-    //     console.error(error);
-    //   });
   };
 
   useEffect(() => {
@@ -114,7 +89,6 @@ export default function PlayerList() {
   const offsetY = useSharedValue(0);
 
   const scrollHandler = useAnimatedScrollHandler((event) => {
-    // console.log("SCROLL", event.contentOffset.y);
     offsetY.value = event.contentOffset.y;
   });
 
@@ -126,28 +100,9 @@ export default function PlayerList() {
   const RenderItem = ({ item, index }: { item: any; index: number }) => {
     const itemRef = useRef<View>(null);
 
-    // useEffect(() => {
-    //   if (itemRef.current) {
-    //     itemRef.current.measure((x, y, width, height, pageX, pageY) => {
-    //       if (height)
-    //         console.log("height", height);
-    //     });
-    //   }
-    // }, []);
-
     const animatedItemStyle = useAnimatedStyle(() => {
-      // const scale = interpolate(
-      //   offsetY.value,
-      //   [
-      //     -1,
-      //     0,
-      //     ITEM_SIZE.value * (index + 0.25), // starts
-      //     ITEM_SIZE.value * (index + 2), // ends
-      //   ],
-      //   [1, 1, 1, 0]
-      // );
       const amount = Math.ceil(totalHeight.value / ITEM_SIZE.value); // 7
-      // console.log(amount);
+
       const scale = interpolate(
         offsetY.value,
         [
@@ -170,22 +125,6 @@ export default function PlayerList() {
         [0, 1, 1, 0]
       );
 
-      // const opacity = interpolate(
-      //   offsetY.value,
-      //   [
-      //     -1,
-      //     0,
-      //     ITEM_SIZE.value * (index + 0.25), // starts
-      //     ITEM_SIZE.value * (index + 1), // ends
-      //   ],
-      //   [
-      //     1,
-      //     1,
-      //     1,
-      //     0
-      //   ]
-      // );
-
       return {
         transformOrigin: [
           "50%",
@@ -205,12 +144,6 @@ export default function PlayerList() {
           href={`/player/${btoa(JSON.stringify(item))}` as Href<string>}
         >
           <PlayerHeadButton uuid={item.uuid} name={item.name} />
-          {/* <View style={{
-            backgroundColor: "green",
-            height: RAW_ITEM_SIZE,
-            // width: "100%",
-          }}>
-          </View> */}
         </CustomLink>
       </Animated.View>
     );
@@ -273,51 +206,16 @@ export default function PlayerList() {
           onPress={() => {
             setSessionId(null);
             router.replace("/");
-            // scrollFit();
-            // setFinished(false);
           }}
         />
       </View>
-      {/* <FlashList
-        data={(() => {
-          if (!playerList || playerList.length <= 0) {
-            return [];
-          }
-
-          let cloned = [...playerList];
-          for (let i = 0; i < 500; i++) {
-            cloned.push(playerList[0]);
-          }
-          return cloned;
-        })()}
-        renderItem={({ item, index }) => {
-          if (!item || !item.textures) {
-            return (<></>);
-          }
-          return (
-            <RenderItem item={item} index={index} />
-          );
-        }}
-
-
-        estimatedItemSize={200}
-      /> */}
+      
       <Animated.FlatList
         ref={flatList}
         style={{
-          // backgroundColor: 'yellow',
           flexGrow: 0,
           height: "100%",
-          // marginBottom: navbarOffset,
-          // paddingBottom: navbarOffset,
         }}
-        contentContainerStyle={
-          {
-            // backgroundColor: 'green',
-            // marginBottom: navbarOffset,
-            // paddingBottom: navbarOffset,
-          }
-        }
         initialNumToRender={21}
         maxToRenderPerBatch={21}
         windowSize={21}
@@ -329,7 +227,6 @@ export default function PlayerList() {
           index,
         })}
         onLayout={(event: LayoutChangeEvent) => {
-          // console.log(event.nativeEvent.layout.height);
           totalHeight.value = event.nativeEvent.layout.height;
         }}
         // keyExtractor={item => item.uuid+Crypto.randomUUID()}

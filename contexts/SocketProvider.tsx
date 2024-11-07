@@ -88,7 +88,6 @@ type SocketContextType = {
 const SocketContext = createContext<SocketContextType | undefined>(undefined);
 
 export const SocketProvider = memo(({ children }: PropsWithChildren) => {
-  console.log("SOCKET PROVIDER RENDER");
 
   const onConnectCallback = useRef<(() => void) | null>(null);
   const onConnectErrorCallback = useRef<((error: Error) => void) | null>(null);

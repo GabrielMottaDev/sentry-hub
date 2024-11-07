@@ -1,5 +1,5 @@
 import React, { Children, cloneElement, isValidElement, useEffect } from "react";
-import { Platform, StatusBar, StatusBarProps, StyleProp, StyleSheet, View } from "react-native";
+import { Keyboard, KeyboardAvoidingView, Platform, StatusBar, StatusBarProps, StyleProp, StyleSheet, View } from "react-native";
 import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
 import * as NavigationBar from 'expo-navigation-bar';
 import NavBar from "./navbar/NavBar";

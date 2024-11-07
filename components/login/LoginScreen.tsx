@@ -46,13 +46,6 @@ const LoginScreen = ({}: LoginScreenProps) => {
   const { setSessionId, hasLogin: isLoggedIn } = useSession();
   const [errorText, setErrorText] = useState<string | null>(null);
 
-  var debug = false;
-  useEffect(() => {
-    // animatedTimingScale.value = 0.05;
-    // animatedTimingScale.value = withRepeat(withTiming(1, { duration: 1000, easing: Easing.inOut(Easing.quad) }), -1, true);
-    // animatedTimingMove.value = withRepeat(withTiming(1, { duration: 1000, easing: Easing.inOut(Easing.quad) }), -1, true);
-  }, []);
-
   const handleBarCode = async (data: string) => {
     try {
       const response = await fetch(`${Env.API_URL}/auth/complete`, {
@@ -103,15 +96,6 @@ const LoginScreen = ({}: LoginScreenProps) => {
         resolve(false);
       });
     })) as boolean;
-    // if (!debug) {
-    // debug = true;
-    // }
-
-    // if (true) {
-    //     return false;
-    // }
-
-    /////
   };
 
   const handleLayout = (event: LayoutChangeEvent) => {
@@ -173,17 +157,18 @@ const LoginScreen = ({}: LoginScreenProps) => {
               // Env.DEBUG_FORCE_LOGIN_QR = text;
               setDebugCode(text);
             }}
+            defaultValue="AUTH_CODE (DEBUG PURPOSES)"
           />
           <Button
             title="DEBUG CONNECT"
             color={"green"}
             onPress={() => {
-            //   setSessionId(debugCode);
-                if (debugCode) {
-                    handleBarCode(debugCode);
-                } else {
-                  setSessionId("123");
-                }
+              //   setSessionId(debugCode);
+              if (debugCode) {
+                handleBarCode(debugCode);
+              } else {
+                setSessionId("123");
+              }
             }}
           />
         </View>

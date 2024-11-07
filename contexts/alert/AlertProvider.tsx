@@ -19,8 +19,6 @@ export const AlertProvider = ({ children }: PropsWithChildren) => {
     alertEmitter.emit("alert", alert);
   }, []);
 
-  console.log("ALERT PROVIDER RENDER");
-
   return (
     <AlertContext.Provider value={{
       setAlert
