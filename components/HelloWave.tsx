@@ -2,6 +2,7 @@ import { StyleSheet } from 'react-native';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
+  Easing,
   withTiming,
   withRepeat,
   withSequence,
@@ -9,12 +10,22 @@ import Animated, {
 
 import { ThemedText } from '@/components/ThemedText';
 
+const EASING = Easing.elastic(0.1);
+
 export function HelloWave() {
   const rotationAnimation = useSharedValue(0);
 
   rotationAnimation.value = withRepeat(
-    withSequence(withTiming(25, { duration: 150 }), withTiming(0, { duration: 150 })),
-    4 // Run the animation 4 times
+    withSequence(
+      withTiming(25, {
+        duration: 150,
+        easing: EASING
+      }),
+      withTiming(0, {
+        duration: 150,
+        easing: EASING
+      })
+    ), -1 // Run the animation -1 times - forever
   );
 
   const animatedStyle = useAnimatedStyle(() => ({
