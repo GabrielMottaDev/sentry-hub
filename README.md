@@ -1,4 +1,4 @@
-# Sentry Hub
+# Sentry Hub 🎮
 
 Sentry Hub is a companion app designed for gaming server administrators to manage their servers and moderate players efficiently.
 
