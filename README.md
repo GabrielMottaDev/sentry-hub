@@ -1,50 +1,49 @@
-# Welcome to your Expo app 👋
+# Sentry Hub
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Sentry Hub is a companion app designed for gaming server administrators to manage their servers and moderate players efficiently.
 
-## Get started
+## Features
 
-1. Install dependencies
+- **Server Management**: Easily manage your gaming server settings and configurations.
+- **Player Moderation**: Monitor and moderate player activities to ensure a fair gaming environment.
+- **Real-time Notifications**: Receive instant alerts for important server events.
+- **User-friendly Interface**: Intuitive and easy-to-use interface for seamless server management.
 
+## Installation
+
+To install Sentry Hub, follow these steps:
+
+1. Clone the repository:
    ```bash
-   npm install
+   git clone https://github.com/gabrielmottadev/sentry-hub.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd sentry-hub
+   ```
+3. Install dependencies:
+   ```bash
+   yarn install
+   ```
+4. Open the app in developer mode:
+   ```bash
+   yarn go
    ```
 
-2. Start the app
+## Building APK
 
-   ```bash
-    npx expo start
-   ```
+To build the APK for Android using Expo, follow these steps:
 
-In the output, you'll find options to open the app in a
+1. Ensure you have the necessary Expo development environment set up. Refer to the [Expo documentation](https://docs.expo.dev/get-started/installation/) for detailed instructions.
+2. Run the following command to build the APK:
+      ```bash
+      eas build --platform android
+      ```
+3. Follow the instructions provided by Expo to complete the build process.
+4. Once the build is complete, you can download the APK from the Expo dashboard or the link provided in the terminal.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Usage
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+1. Launch the app and log in with your server administrator credentials.
+2. Navigate through the dashboard to access various server management and moderation tools.
+3. Customize settings and monitor server activities in real-time.
