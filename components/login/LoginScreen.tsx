@@ -55,7 +55,6 @@ const LoginScreen = ({}: LoginScreenProps) => {
         },
         body: JSON.stringify({ api_key: `${Env.API_KEY}`, auth_code: data }),
       });
-      // console.log("RESPONSE", response);
       const result = await response.json();
       console.log("RESULT", result);
       if (result.auth_result === "success") {

@@ -16,7 +16,6 @@ const NavItem = ({ title, icon, href }: NavItemProps) => {
     const router = useRouter();
 
     const handlePress = () => {
-        // console.log(pathname)
         if(pathname === href) return;
         router.replace(href);
     };

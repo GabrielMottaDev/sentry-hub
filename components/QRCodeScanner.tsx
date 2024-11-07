@@ -73,19 +73,6 @@ const QRCodeScanner = forwardRef<QRCodeScannerHandle, QRCodeScannerProps>(
       enable: enable,
     }));
 
-    useEffect(() => {
-      // enable();
-      // console.log("ASD");
-      // console.log(cameraViewRef.current)
-    }, [cameraViewRef]);
-
-    // useEffect(() => {
-    //   if (Env.DEBUG && Env.DEBUG_FORCE_LOGIN_QR) {
-    //     setScanned(true);
-    //     setSessionId(Env.DEBUG_FORCE_LOGIN_QR);
-    //   }
-    // }, []);
-
     if (!permission) {
       // Camera permissions are still loading.
       return <View />;
